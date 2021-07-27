@@ -11,15 +11,22 @@
 
 using namespace std;
 
+/*void AplicacaoTransmissora();
+list<char> strToBin(string s);
+void debugMsg(list<char> msg);
+string binToStr(list<char> msg);
+int countOnes(list<char> msg);*/
 
 
-/* int main(void) {
+
+
+/*int main(void) {
     AplicacaoTransmissora();
     return 0;
     //fim do metodo main
-}
+}*/
 
-void AplicacaoTransmissora(){
+/* void AplicacaoTransmissora(){
     string mensagem;
     list<char> msg;
 
@@ -30,6 +37,8 @@ void AplicacaoTransmissora(){
     msg = strToBin(mensagem);
 
     debugMsg(msg);
+
+    printf("%d", countOnes(msg));
 
     binToStr(msg);
 
@@ -96,5 +105,22 @@ string binToStr(list<char> msg){
         count++;
     }
 
+    str += character;
+
     return(str);
+}
+
+int countOnes(list<char> msg) {
+    int count = 0;
+    
+    for (auto it = msg.begin(); it != msg.end(); it++){
+
+        if(*it == '1'){
+            count++;
+        }
+    }
+
+    printf("\ncontagem: %d\n", count);
+
+    return count;
 }

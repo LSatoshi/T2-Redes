@@ -18,6 +18,7 @@
     list<char> strToBin(string s);
     void debugMsg(list<char> msg);
     string binToStr(list<char> msg);
+    int countOnes(list<char> msg);
 
 
 #endif

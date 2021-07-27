@@ -34,9 +34,35 @@ void CamadaDeAplicacaoReceptora(list<char> quadro) {
 
 
 void CamadaEnlaceDadosReceptora(list<char> quadro, int tipoVerificacao) {
+
+    //tipo 0: par
+    if(tipoVerificacao == 0){
+        if(countOnes(quadro)%2 == 0) {
+            quadro.pop_back();
+            CamadaDeAplicacaoReceptora(quadro);
+        }
+        else{
+            cout << "A verificacao do pacote falhou\n";
+        }
+    
+    //tipo 1: impar
+    } else if (tipoVerificacao == 1){
+        
+        if(countOnes(quadro)%2 == 1) {
+            quadro.pop_back();
+            CamadaDeAplicacaoReceptora(quadro);
+        }else {
+            cout << "A verificacao do pacote falhou\n";
+        }
+        
+    //tipo 2: crc32
+    } else if (tipoVerificacao == 2){
+
+    }
     //verifica se os bits chegaram certos de acordo com o tipo de verificacao
     //se deu bom tira os bits de verificacao e manda pra frente
     //se nao da erro
+    return;
 }
 
 void MeioDeComunicacao (list<char> fluxoBrutoDeBits, int tipoVerificacao) {
@@ -64,15 +90,18 @@ void MeioDeComunicacao (list<char> fluxoBrutoDeBits, int tipoVerificacao) {
     cout << "\n Bits depois da transmissao: \n";
     debugMsg(fluxoBrutoDeBitsPontoB);
     cout << endl;
-    CamadaDeAplicacaoReceptora(fluxoBrutoDeBitsPontoB);
-    //CamadaEnlaceDadosReceptora(fluxoBrutoDeBitsPontoB, tipoVerificacao);
+    //CamadaDeAplicacaoReceptora(fluxoBrutoDeBitsPontoB);
+    CamadaEnlaceDadosReceptora(fluxoBrutoDeBitsPontoB, tipoVerificacao);
     return;
 }
 // Fim do metodo MeioDeComunicacao.
 
+// Funcao de encaminhamento para a proxima camada. Escolhe o tipo de verificacao e chama a proxima camada.
+// Recebe o quadro de bits da mensagem e a opcao de verificacao escolhida pelo usuario.
+// Retorna o quadro de bits resultantes apos as verificacoes.
 list<char> CamadaEnlaceDadosTransmissoraControleDeErro (list<char> quadro, int tipoVerificacao) {
-    int tipoDeControleDeErro = tipoVerificacao;
-    switch (tipoDeControleDeErro) {
+    // Escolhe o tipo de verificacao de acordo com a opcao selecionada pelo usuario.
+    switch (tipoVerificacao) {
         case 0: // Verificacao por bit de paridade par.
             quadro = CamadaEnlaceDadosTransmissoraControleDeErroBitParidadePar(quadro);
             break;
@@ -82,7 +111,9 @@ list<char> CamadaEnlaceDadosTransmissoraControleDeErro (list<char> quadro, int t
         case 2: // Verificacao por CRC.
             quadro = CamadaEnlaceDadosTransmissoraControleDeErroCRC(quadro);
             break;
-    }// Fim do switch case
+    } // Fim do switch case.
+
+    // Retorna o quadro de bits resultante.
     return(quadro);
 }
 // Fim do metodo CamadaEnlaceDadosTransmissoraControleDeErro.
