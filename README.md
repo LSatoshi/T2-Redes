@@ -1,0 +1,14 @@
+Gustavo Akira Hirakawa - 11381768<br>
+Leandro Satoshi de Siqueira - 10893103<br>
+Luana Terra do Couto - 11218917<br>
+Paolo Victor Hitoshi Scassa - 10783312<br>
+Yago Poletto Salgado - 10724455<br>
+
+
+Versão do Linux: 20.04.2 LTS<br>
+Compilador: g++<br>
+Ambiente de programação: Visual Studio Live Share<br>
+
+Trabalho 2 para SSC0142 - Redes de Computadores (2021)<br>
+
+Simulação do funcionamento da camada de enlace por meio da implementação dos protocolos existentes. O usuário pode digitar uma mensagem e escolher o tipo de verificação que deseja realizar.
