@@ -7,6 +7,7 @@ Yago Poletto Salgado - 10724455<br>
 
 Versão do Linux: 20.04.2 LTS<br>
 Compilador: g++<br>
+Ambiente de programação: Visual Studio Live Share<br>
 
 Trabalho 2 para SSC0142 - Redes de Computadores (2021)<br>
 
