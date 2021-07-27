@@ -9,3 +9,5 @@ Versão do Linux: 20.04.2 LTS<br>
 Compilador: g++<br>
 
 Trabalho 2 para SSC0142 - Redes de Computadores (2021)<br>
+
+Simulação do funcionamento da camada de enlace por meio da implementação dos protocolos existentes. O usuário pode digitar uma mensagem e escolher o tipo de verificação que deseja realizar.
